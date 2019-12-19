@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;</TargetFrameworks>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <AssemblyVersion>$(Major).$(Minor).$(Patch).$(BuildNumber)</AssemblyVersion>
+	  <FileVersion>$(Major).$(Minor).$(Patch).$(BuildNumber)</FileVersion>
+	  <Version Condition="'$(Configuration)' != 'Release'">$(Major).$(Minor).$(Patch)-beta</Version>
+	  <Version Condition="'$(Configuration)' == 'Release'">$(Major).$(Minor).$(Patch)</Version>
+	  <Authors>Adam Holt</Authors>
+	  <Description>Interfaces for common sensors.</Description>
+	  <PackageLicenseUrl></PackageLicenseUrl>
+	  <PackageProjectUrl>https://github.com/Sannel/Sannel.House.Base.Sensor</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/Sannel/Sannel.House.Base.Sensor</RepositoryUrl>
+	  <PackageReleaseNotes></PackageReleaseNotes>
+	  <Company>Sannel Software, L.L.C.</Company>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

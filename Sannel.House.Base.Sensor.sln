@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EA209CC2-65B4-480A-96DD-AE258D1B8282}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		.nuget\nuget.config = .nuget\nuget.config
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sannel.House.Base.Sensor", "src\Sannel.House.Base.Sensor\Sannel.House.Base.Sensor.csproj", "{C46F0234-3DED-48CB-B450-72EEFFD3D63D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C46F0234-3DED-48CB-B450-72EEFFD3D63D} = {DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AAAE196-FA92-4FBD-BB2E-2A1817CD7985}
+	EndGlobalSection
+EndGlobal
