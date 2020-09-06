@@ -14,9 +14,9 @@ variables:
 
 resources:
   repositories:
-    - repository: buildscripts
+    - repository: templates
       type: github
       name: Sannel/Sannel.House.BuildScripts
 
 jobs:
-- template: tasks/Library.yaml@buildscripts  # Template reference
+- template: tasks/Library.yaml@templates  # Template reference
