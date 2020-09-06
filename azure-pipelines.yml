@@ -6,9 +6,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  projects: |
-    src/**/*.csproj
-    !src/**/*Tests.csproj
   support_netstandard20: true
   support_netstandard21: true
   support_netcoreapp21: true
@@ -123,7 +120,9 @@ steps:
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: $(projects)
+    packagesToPack: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     configuration: 'Release'
     versioningScheme: 'off'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
@@ -132,7 +131,9 @@ steps:
   inputs:
     command: 'pack'
     feedsToUse: 'select'
-    packagesToPack: $(projects)
+    packagesToPack: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     configuration: 'Debug'
     versioningScheme: 'off'
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
