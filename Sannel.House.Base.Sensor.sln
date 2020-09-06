@@ -16,7 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sannel.House.Base.Sensor", "src\Sannel.House.Base.Sensor\Sannel.House.Base.Sensor.csproj", "{C46F0234-3DED-48CB-B450-72EEFFD3D63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sannel.House.Base.Sensor", "src\Sannel.House.Base.Sensor\Sannel.House.Base.Sensor.csproj", "{C46F0234-3DED-48CB-B450-72EEFFD3D63D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sannel.House.Base.Sensor.Tests", "src\Sannel.House.Base.Sensor.Tests\Sannel.House.Base.Sensor.Tests.csproj", "{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sannel.House.Base.Sensor.MQTT", "src\Sannel.House.Base.Sensor.MQTT\Sannel.House.Base.Sensor.MQTT.csproj", "{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,12 +32,22 @@ Global
 		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46F0234-3DED-48CB-B450-72EEFFD3D63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C46F0234-3DED-48CB-B450-72EEFFD3D63D} = {DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}
+		{5AA030B1-3A36-45B6-AB5C-3DEDDFCF21D7} = {DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}
+		{9D1BFBF0-1F4F-4891-A1CF-6E92DF186940} = {DBA9A89F-C430-4EC3-9BAA-4BC76D5B21F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AAAE196-FA92-4FBD-BB2E-2A1817CD7985}

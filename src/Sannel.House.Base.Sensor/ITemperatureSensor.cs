@@ -19,6 +19,10 @@ namespace Sannel.House.Base.Sensor
 {
 	public interface ITemperatureSensor : ISensor
 	{
+		/// <summary>
+		/// Gets the temperature Celsius.
+		/// </summary>
+		/// <returns></returns>
 		double GetTemperatureCelsius();
 	}
 }

@@ -17,8 +17,12 @@ using System.Text;
 
 namespace Sannel.House.Base.Sensor
 {
-	public interface ILightSensor
+	public interface ILightSensor : ISensor
 	{
+		/// <summary>
+		/// Gets the lux level.
+		/// </summary>
+		/// <returns></returns>
 		double GetLuxLevel();
 	}
 }
