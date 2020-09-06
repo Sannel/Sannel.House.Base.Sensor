@@ -20,4 +20,4 @@ resources:
       endpoint: Sannel
 
 jobs:
-- template: tasks/library.yaml@templates  # Template reference
+- template: tasks/library.yml@templates  # Template reference
