@@ -60,7 +60,9 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: 'src/**/*!(Tests).csproj'
+    projects:
+    - "src/**/*.csproj"
+    - "!src/**/*Tests.csproj"
     arguments: '-o $(Build.StagingDirectory)/netstandard2.0 -f netstandard2.0'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_netstandard20'], 'true'))
