@@ -6,8 +6,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  library_project: src/Sannel.House.Base.Sensor/Sannel.House.Base.Sensor.csproj
-  library_project2: src/Sannel.House.Base.Sensor.MQTT/Sannel.House.Base.Sensor.MQTT.csproj
+  projects: |
+    src/**/*.csproj
+    !src/**/*Tests.csproj
   support_netstandard20: true
   support_netstandard21: true
   support_netcoreapp21: true
@@ -117,12 +118,24 @@ steps:
     command: test
     arguments: '--collect "Code coverage"'
     publishTestResults: true
-- template: build/tasks/build.yaml
-  parameters:
-    library_project: $library_project
-- template: build/tasks/build.yaml
-  parameters:
-    library_project: $library_project2
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack Release'
+  inputs:
+    command: 'pack'
+    feedsToUse: 'select'
+    packagesToPack: $(projects)
+    configuration: 'Release'
+    versioningScheme: 'off'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack Debug'
+  inputs:
+    command: 'pack'
+    feedsToUse: 'select'
+    packagesToPack: $(projects)
+    configuration: 'Debug'
+    versioningScheme: 'off'
+  condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact'
   inputs:
