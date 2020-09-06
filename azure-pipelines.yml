@@ -17,6 +17,7 @@ resources:
     - repository: templates
       type: github
       name: Sannel/Sannel.House.BuildScripts
+      endpoint: Sannel
 
 jobs:
 - template: tasks/Library.yaml@templates  # Template reference
