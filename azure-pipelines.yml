@@ -60,9 +60,9 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects:
-    - "src/**/*.csproj"
-    - "!src/**/*Tests.csproj"
+    projects: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     arguments: '-o $(Build.StagingDirectory)/netstandard2.0 -f netstandard2.0'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_netstandard20'], 'true'))
@@ -71,7 +71,9 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'src/**/*!(Tests).csproj'
+    projects: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     arguments: '-o $(Build.StagingDirectory)/netstandard2.1 -f netstandard2.1'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_netstandard21'], 'true'))
@@ -80,7 +82,9 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'src/**/*.csproj'
+    projects: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     arguments: '-o $(Build.StagingDirectory)/netcoreapp2.1 -f netcoreapp2.1'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_netcoreapp21'], 'true'))
@@ -89,7 +93,9 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'src/**/*.csproj'
+    projects: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     arguments: '-o $(Build.StagingDirectory)/netcoreapp3.1 -f netcoreapp3.1'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_netcoreapp31'], 'true'))
@@ -98,7 +104,9 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: 'src/**/*.csproj'
+    projects: |
+      src/**/*.csproj
+      !src/**/*Tests.csproj
     arguments: '-o $(Build.StagingDirectory)/net5.0 -f net5.0'
     zipAfterPublish: false
   condition: and(succeeded(), eq(variables['support_net5_0'], 'true'))
