@@ -39,63 +39,63 @@ namespace Sannel.House.Base.Sensor
 				{
 					addSensorType(reading, SensorTypes.Humidity);
 
-					var humidity = sensor as IHumiditySensor;
+					var humidity = (IHumiditySensor)sensor;
 					reading.Values[nameof(SensorTypes.Humidity)] = humidity.GetRelativeHumidity();
 				}
 				else if(@interface == typeof(ILightSensor))
 				{
 					addSensorType(reading, SensorTypes.Lux);
 
-					var lux = sensor as ILightSensor;
+					var lux = (ILightSensor)sensor;
 					reading.Values[nameof(SensorTypes.Lux)] = lux.GetLuxLevel();
 				}
 				else if(@interface == typeof(IPressureSensor))
 				{
 					addSensorType(reading, SensorTypes.Pressure);
 
-					var pressure = sensor as IPressureSensor;
+					var pressure = (IPressureSensor)sensor;
 					reading.Values[nameof(SensorTypes.Pressure)] = pressure.GetPressure();
 				}
 				else if(@interface == typeof(ITemperatureSensor))
 				{
 					addSensorType(reading, SensorTypes.Temperature);
 
-					var temperature = sensor as ITemperatureSensor;
+					var temperature = (ITemperatureSensor)sensor;
 					reading.Values[nameof(SensorTypes.Temperature)] = temperature.GetTemperatureCelsius();
 				}
 				else if(@interface == typeof(IWindSpeedSensor))
 				{
 					addSensorType(reading, SensorTypes.WindSpeed);
 
-					var windSpeed = sensor as IWindSpeedSensor;
+					var windSpeed = (IWindSpeedSensor)sensor;
 					reading.Values[nameof(SensorTypes.WindSpeed)] = windSpeed.GetWindSpeedKph();
 				}
 				else if(@interface == typeof(IWindDirectionSensor))
 				{
 					addSensorType(reading, SensorTypes.WindDirection);
 
-					var windDirection = sensor as IWindDirectionSensor;
+					var windDirection = (IWindDirectionSensor)sensor;
 					reading.Values[nameof(SensorTypes.WindDirection)] = windDirection.GetWindDirection();
 				}
 				else if(@interface == typeof(ISoilMoistureSensor))
 				{
 					addSensorType(reading, SensorTypes.SoilMoisture);
 
-					var soilMoisture = sensor as ISoilMoistureSensor;
+					var soilMoisture = (ISoilMoistureSensor)sensor;
 					reading.Values[nameof(SensorTypes.SoilMoisture)] = soilMoisture.GetSoilMoisture();
 				}
 				else if(@interface == typeof(IRainSensor))
 				{
 					addSensorType(reading, SensorTypes.Rain);
 
-					var rain = sensor as IRainSensor;
+					var rain = (IRainSensor)sensor;
 					reading.Values[nameof(SensorTypes.Rain)] = rain.GetRainPerHour();
 				}
 				else if(@interface == typeof(ISoilTemperatureSensor))
 				{
 					addSensorType(reading, SensorTypes.SoilTemperature);
 
-					var soilTemperature = sensor as ISoilTemperatureSensor;
+					var soilTemperature = (ISoilTemperatureSensor)sensor;
 					reading.Values[nameof(SensorTypes.SoilTemperature)] = soilTemperature.GetSoilTemperatureCelsius();
 				}
 			}
@@ -110,10 +110,12 @@ namespace Sannel.House.Base.Sensor
 		/// <exception cref="ArgumentNullException">sensor</exception>
 		public static FieldReading ToFieldReading(this ISensor sensor, long macAddress)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(sensor is null)
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			var reading = new FieldReading
 			{
@@ -134,11 +136,12 @@ namespace Sannel.House.Base.Sensor
 		/// <exception cref="ArgumentNullException">sensor</exception>
 		public static FieldReading ToFieldReading(this ISensor sensor, Guid uuid)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(sensor is null)
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
-
+#endif
 			var reading = new FieldReading
 			{
 				Uuid = uuid
@@ -159,10 +162,12 @@ namespace Sannel.House.Base.Sensor
 		/// <exception cref="ArgumentNullException">sensor</exception>
 		public static FieldReading ToFieldReading(this ISensor sensor, string manufacture, string manufactureId)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(sensor is null)
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			var reading = new FieldReading
 			{

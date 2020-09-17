@@ -44,14 +44,26 @@ namespace Sannel.House.Base.Sensor
 		/// <value>
 		/// The manufacture.
 		/// </value>
-		public string Manufacture { get; set; }
+		public
+#if NETSTANDARD2_0 || NETCOREAPP2_1
+			string
+#else
+			string? 
+#endif
+			Manufacture { get; set; }
 		/// <summary>
 		/// Gets or sets the manufacture identifier.
 		/// </summary>
 		/// <value>
 		/// The manufacture identifier.
 		/// </value>
-		public string ManufactureId { get; set; }
+		public 
+#if NETSTANDARD2_0 || NETCOREAPP2_1
+			string
+#else
+			string? 
+#endif
+			ManufactureId { get; set; }
 
 		/// <summary>
 		/// Gets or sets the values.

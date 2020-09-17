@@ -116,7 +116,7 @@ namespace Sannel.House.Base.Sensor.Tests
 			var t = typeof(Mock<>);
 			var gtype = t.MakeGenericType(type);
 
-			var sensor = (Mock)Activator.CreateInstance(gtype);
+			Mock sensor = (Mock)(Activator.CreateInstance(gtype) ?? throw new NullReferenceException("Unable to create type"));
 			sensor.DefaultValueProvider = new SensorDefaultValueProvider()
 			{
 				Value = value
@@ -150,7 +150,7 @@ namespace Sannel.House.Base.Sensor.Tests
 			var t = typeof(Mock<>);
 			var gtype = t.MakeGenericType(type);
 
-			var sensor = (Mock)Activator.CreateInstance(gtype);
+			Mock sensor = (Mock)(Activator.CreateInstance(gtype) ?? throw new NullReferenceException("Unable to create type"));
 			sensor.DefaultValueProvider = new SensorDefaultValueProvider()
 			{
 				Value = value
@@ -184,7 +184,7 @@ namespace Sannel.House.Base.Sensor.Tests
 			var t = typeof(Mock<>);
 			var gtype = t.MakeGenericType(type);
 
-			var sensor = (Mock)Activator.CreateInstance(gtype);
+			Mock sensor = (Mock)(Activator.CreateInstance(gtype) ?? throw new NullReferenceException("Unable to create type"));
 			sensor.DefaultValueProvider = new SensorDefaultValueProvider()
 			{
 				Value = value
@@ -203,7 +203,7 @@ namespace Sannel.House.Base.Sensor.Tests
 			Assert.Single(fieldReading.Values);
 			Assert.Equal(value, fieldReading.Values[sensorType.ToString()]);
 		}
-
+#if NETCOREAPP2_1
 		[Fact]
 		public void MacAddressNullTest()
 		{
@@ -221,5 +221,6 @@ namespace Sannel.House.Base.Sensor.Tests
 		{
 			Assert.Throws<ArgumentNullException>("sensor", () => ISensorExtensions.ToFieldReading(null, Guid.NewGuid().ToString(), Guid.NewGuid().ToString()));
 		}
+#endif
 	}
 }

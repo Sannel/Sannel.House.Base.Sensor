@@ -75,6 +75,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static void PublishSensorReading(this IMqttClientPublishService mqtt, ISensor sensor, string manufacture, string manufactureId)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -84,6 +85,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			if (string.IsNullOrWhiteSpace(manufacture))
 			{
@@ -112,6 +114,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, ISensor sensor, long macAddress)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -121,6 +124,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			return mqtt.PublishAsync(sensor.ToFieldReading(macAddress));
 		}
@@ -139,6 +143,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, ISensor sensor, Guid uuid)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -148,6 +153,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			return mqtt.PublishAsync(sensor.ToFieldReading(uuid));
 		}
@@ -171,6 +177,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, ISensor sensor, string manufacture, string manufactureId)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -180,6 +187,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			if (string.IsNullOrWhiteSpace(manufacture))
 			{
@@ -206,6 +214,7 @@ namespace Sannel.House.Base.Sensor
 		/// sensor</exception>
 		public static void PublishSensorReading(this IMqttClientPublishService mqtt, string topic, ISensor sensor, long macAddress)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -220,7 +229,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
-
+#endif
 
 			mqtt.Publish(topic, sensor.ToFieldReading(macAddress));
 		}
@@ -237,6 +246,7 @@ namespace Sannel.House.Base.Sensor
 		/// sensor</exception>
 		public static void PublishSensorReading(this IMqttClientPublishService mqtt, string topic, ISensor sensor, Guid uuid)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -251,6 +261,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 			mqtt.Publish(topic, sensor.ToFieldReading(uuid));
 		}
@@ -269,6 +280,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static void PublishSensorReading(this IMqttClientPublishService mqtt, string topic, ISensor sensor, string manufacture, string manufactureId)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -283,7 +295,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
-
+#endif
 
 			if (string.IsNullOrWhiteSpace(manufacture))
 			{
@@ -312,6 +324,7 @@ namespace Sannel.House.Base.Sensor
 		/// </exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, string topic, ISensor sensor, long macAddress)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -326,6 +339,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
+#endif
 
 
 			return mqtt.PublishAsync(topic, sensor.ToFieldReading(macAddress));
@@ -344,6 +358,7 @@ namespace Sannel.House.Base.Sensor
 		/// sensor</exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, string topic, ISensor sensor, Guid uuid)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -358,7 +373,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
-
+#endif
 
 			return mqtt.PublishAsync(topic, sensor.ToFieldReading(uuid));
 		}
@@ -381,6 +396,7 @@ namespace Sannel.House.Base.Sensor
 		/// manufactureId</exception>
 		public static Task PublishSensorReadingAsync(this IMqttClientPublishService mqtt, string topic, ISensor sensor, string manufacture, string manufactureId)
 		{
+#if NETSTANDARD2_0 || NETCOREAPP2_1
 			if(mqtt is null)
 			{
 				throw new ArgumentNullException(nameof(mqtt));
@@ -395,7 +411,7 @@ namespace Sannel.House.Base.Sensor
 			{
 				throw new ArgumentNullException(nameof(sensor));
 			}
-
+#endif
 
 			if (string.IsNullOrWhiteSpace(manufacture))
 			{

@@ -27,12 +27,12 @@ namespace Sannel.House.Base.Sensor.Tests
 	{
 		private Random random = new Random();
 
+#if NETCOREAPP2_1
 		[Fact]
 		public async Task PublishMacAddressNullTests()
 		{
 			var mqtt = new Mock<IMqttClientPublishService>();
 			var sensor = new Mock<ITemperatureSensor>();
-
 			Assert.Throws<ArgumentNullException>("mqtt", () => MQTTExtensions.PublishSensorReading(null, null, 0));
 			Assert.Throws<ArgumentNullException>("sensor", () => MQTTExtensions.PublishSensorReading(mqtt.Object, null, 0));
 
@@ -97,6 +97,17 @@ namespace Sannel.House.Base.Sensor.Tests
 			await Assert.ThrowsAsync<ArgumentNullException>("manufacture", () => MQTTExtensions.PublishSensorReadingAsync(mqtt.Object, Guid.NewGuid().ToString(), sensor.Object, null, "b"));
 			await Assert.ThrowsAsync<ArgumentNullException>("manufactureId", () => MQTTExtensions.PublishSensorReadingAsync(mqtt.Object, Guid.NewGuid().ToString(), sensor.Object, "a", null));
 		}
+#else 
+
+		[Fact]
+		public async Task PublishManufactureEmptyTests()
+		{
+			var mqtt = new Mock<IMqttClientPublishService>();
+			var sensor = new Mock<ITemperatureSensor>();
+			await Assert.ThrowsAsync<ArgumentNullException>("manufacture", () => MQTTExtensions.PublishSensorReadingAsync(mqtt.Object, Guid.NewGuid().ToString(), sensor.Object, string.Empty, "b"));
+			await Assert.ThrowsAsync<ArgumentNullException>("manufactureId", () => MQTTExtensions.PublishSensorReadingAsync(mqtt.Object, Guid.NewGuid().ToString(), sensor.Object, "a", string.Empty));
+		}
+#endif
 
 		[Fact]
 		public void PublishMacAddressTest()
@@ -110,7 +121,7 @@ namespace Sannel.House.Base.Sensor.Tests
 				.Returns(value);
 
 			var mqtt = new Mock<IMqttClientPublishService>();
-			mqtt.Setup(i => i.Publish(It.IsAny<Object>()))
+			mqtt.Setup(i => i.Publish(It.IsAny<object>()))
 				.Callback((object obj) =>
 				{
 					publishCalled++;
