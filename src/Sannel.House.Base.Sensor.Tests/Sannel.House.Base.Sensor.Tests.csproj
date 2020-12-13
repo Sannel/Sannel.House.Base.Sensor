@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
@@ -13,7 +13,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Moq" Version="4.14.5" />
+		<PackageReference Include="Moq" Version="4.15.*" />
 		<PackageReference Include="xunit" Version="2.4.1" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
 			<PrivateAssets>all</PrivateAssets>
@@ -25,11 +25,8 @@
 		</PackageReference>
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0-preview-*" />
-	</ItemGroup>
-	<ItemGroup Condition="'$(TargetFramework)' != 'net5.0'">
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.*" />
 	</ItemGroup>
 
 	<ItemGroup>
