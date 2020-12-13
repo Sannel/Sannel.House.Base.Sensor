@@ -2,6 +2,13 @@ trigger:
 - master
 - develop
 
+pr:
+- master
+- develop
+- feature/*
+
+name: $(Date:yyyyMMdd)$(Rev:rr)
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -11,6 +18,10 @@ variables:
   support_netcoreapp21: true
   support_netcoreapp31: true
   support_net5_0: true
+  major: 1
+  minor: 0
+  patch: 0
+
 
 resources:
   repositories:
